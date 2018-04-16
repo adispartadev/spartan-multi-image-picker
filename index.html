@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+<body>
+
+	<div class="row">
+		<div id="coba"></div>
+	</div>
+	<div class="row">
+		<div id="coba1"></div>
+	</div>
+	<hr/>
+
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	<!-- <script type="text/javascript" src="mustache.min.js"></script> -->
+		
+	<script type="text/javascript" src="spartan-multi-image-picker.min.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			
+			$("#coba").spartanMultiImagePicker({
+				fieldName:   'fileUpload[]',
+				maxCount : 5
+			});
+
+			$("#coba1").spartanMultiImagePicker({
+				fieldName:   'fileUploadDua[]'
+			});
+		});
+	</script>
+</body>
+</html>
