@@ -1,7 +1,7 @@
 # spartan-multi-image-picker
 
 This plugin enable you to upload multiple files on a html form without giving user a pain in the ass to hold their `Ctrl` keyboard.
-![preview]("https://www.dropbox.com/s/7i1sdrl536xw7mw/ezgif.com-video-to-gif.gif?dl=1")
+![img](ezgif.com-video-to-gif.gif)
 
 ### Installation
 
