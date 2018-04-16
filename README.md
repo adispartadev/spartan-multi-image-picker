@@ -2,6 +2,10 @@
 
 This plugin enable you to upload multiple files on a html form without giving user a pain in the ass to hold their `Ctrl` keyboard.
 
+
+![img](ezgif.com-video-to-gif.gif)
+
+
 ### Installation
 
 You must include [JQuery](https://nodejs.org/) first, and this plugin after that like so.
