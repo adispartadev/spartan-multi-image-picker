@@ -34,8 +34,10 @@
 		$(function(){
 			
 			$("#coba").spartanMultiImagePicker({
-				fieldName:   'fileUpload[]', // this will append <input type="file" name="fileUpload[]"> to your html form
-				maxCount : 5
+				fieldName:  'fileUpload[]', // this will append <input type="file" name="fileUpload[]"> to your html form
+				maxCount : 5,
+				rowHeight : '200px',
+				groupClassName : 'col-md-4 col-sm-4 col-xs-6'
 			});
 
 		});
