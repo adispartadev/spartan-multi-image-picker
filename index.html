@@ -6,28 +6,38 @@
 </head>
 <body>
 
-	<div class="row">
-		<div id="coba"></div>
+	<div class="container">
+		<br>
+		<br>
+		<div class="form-horizontal">
+			<div class="form-group">
+				<label class="control-label col-md-3">Upload Image</label>
+				<div class="col-md-8">
+					<div class="row">
+						<div id="coba"></div>
+					</div>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="control-label col-md-3"></label>
+				<div class="col-md-8">
+					<input type="submit" class="btn btn-primary" value="Send">
+				</div>
+			</div>
+		</div>	
 	</div>
-	<div class="row">
-		<div id="coba1"></div>
-	</div>
-	<hr/>
 
 	<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 	<script type="text/javascript" src="spartan-multi-image-picker.min.js"></script>
-	
+
 	<script type="text/javascript">
 		$(function(){
 			
 			$("#coba").spartanMultiImagePicker({
-				fieldName:   'fileUpload[]',
+				fieldName:   'fileUpload[]', // this will append <input type="file" name="fileUpload[]"> to your html form
 				maxCount : 5
 			});
 
-			$("#coba1").spartanMultiImagePicker({
-				fieldName:   'fileUploadDua[]'
-			});
 		});
 	</script>
 </body>
