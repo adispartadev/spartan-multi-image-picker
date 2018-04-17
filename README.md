@@ -43,5 +43,13 @@ This is what you can custom when you call this plugin.
 | `groupClassName` | String, example : `col-md-4 col-sm-4 col-xs-6` |
 
 
+### Callback
+
+| Callback | Description |
+| ------ | ------ |
+| `onAddRow` | Called on a new field appear |
+| `onRemoveRow` | Called on user click the remove button for each field |
+
+
 ### PS
 This plugin run best using bootstrap 3 and you are my **alpha tester** :)

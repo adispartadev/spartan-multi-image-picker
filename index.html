@@ -28,14 +28,22 @@
 	</div>
 
 	<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-	<script type="text/javascript" src="spartan-multi-image-picker.min.js"></script>
+	<script type="text/javascript" src="spartan-multi-image-picker.js"></script>
 
 	<script type="text/javascript">
 		$(function(){
 			
 			$("#coba").spartanMultiImagePicker({
 				fieldName:   'fileUpload[]', // this will append <input type="file" name="fileUpload[]"> to your html form
-				maxCount : 5
+				maxCount : 5,
+				rowHeight : '200px',
+				groupClassName : 'col-md-4 col-sm-4 col-xs-6',
+				onAddRow : function(){
+					console.log('haha');
+				},
+				onRemoveRow : function(){
+					console.log('hehe');
+				}
 			});
 
 		});
