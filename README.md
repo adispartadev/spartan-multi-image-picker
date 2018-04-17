@@ -11,7 +11,7 @@ This plugin enable you to upload multiple files on a html form without giving us
 You must include [JQuery](https://nodejs.org/) first, and this plugin after that like so.
 ```html
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-	<script type="text/javascript" src="spartan-multi-image-picker.min.js"></script>
+<script type="text/javascript" src="spartan-multi-image-picker.min.js"></script>
 ```
 
 After doing that, create an element where do you want to activate this input file picker.
