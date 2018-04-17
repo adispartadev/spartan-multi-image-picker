@@ -28,7 +28,7 @@
 	</div>
 
 	<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-	<script type="text/javascript" src="spartan-multi-image-picker.js"></script>
+	<script type="text/javascript" src="spartan-multi-image-picker.min.js"></script>
 
 	<script type="text/javascript">
 		$(function(){
@@ -39,10 +39,13 @@
 				rowHeight : '200px',
 				groupClassName : 'col-md-4 col-sm-4 col-xs-6',
 				onAddRow : function(){
-					console.log('haha');
+					console.log('add new row');
+				},
+				onRenderedPreview : function(){
+					console.log('preview rendered');
 				},
 				onRemoveRow : function(){
-					console.log('hehe');
+					console.log('remove row');
 				}
 			});
 

@@ -50,6 +50,7 @@ You can see the example in my `index.html` file.
 | Callback | Description |
 | ------ | ------ |
 | `onAddRow` | Called on a new field appear |
+| `onRenderedPreview` | Called on image rendered as a preview  |
 | `onRemoveRow` | Called on user click the remove button for each field |
 
 
