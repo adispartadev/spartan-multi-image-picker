@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+	<title>Spartan Multi Image Picker</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 </head>
 <body>
@@ -28,17 +28,22 @@
 	</div>
 
 	<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-	<script type="text/javascript" src="spartan.multiImagePicker/js/spartan-multi-image-picker.min.js"></script>
+	<script type="text/javascript" src="src/js/spartan-multi-image-picker.js"></script>
 
 	<script type="text/javascript">
 		$(function(){
 
 			$("#coba").spartanMultiImagePicker({
-				fieldName:   'fileUpload[]', // this will append <input type="file" name="fileUpload[]"> to your html form
-				maxCount : 5,
-				rowHeight : '200px',
-				groupClassName : 'col-md-4 col-sm-4 col-xs-6',
-				onAddRow : function(){
+				fieldName:        'fileUpload[]',
+				maxCount:         5,
+				rowHeight:        '200px',
+				groupClassName:   'col-md-4 col-sm-4 col-xs-6',
+				allowedExt:       'png|jpg',
+				placeholderImage: {
+				    image: 'placeholder.png',
+				    width: '100%'
+				},
+				onAddRow:       function(){
 					console.log('add new row');
 				},
 				onRenderedPreview : function(){
@@ -46,6 +51,10 @@
 				},
 				onRemoveRow : function(){
 					console.log('remove row');
+				},
+				onExtensionErr : function(){
+					console.log('extension err');
+					alert('Please only input png or jpg type file')
 				}
 			});
 

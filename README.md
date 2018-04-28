@@ -1,9 +1,9 @@
 # spartan-multi-image-picker
 
-This plugin enable you to upload multiple files on a html form without giving user a pain in the ass to hold their `Ctrl` keyboard.
+This plugin enable you to upload multiple files on a html form without giving your dummy user a pain in the ass to hold their `Ctrl` keyboard.
 
 
-![img](ezgif.com-video-to-gif.gif)
+![img](preview.gif)
 
 
 ### Installation
@@ -11,10 +11,10 @@ This plugin enable you to upload multiple files on a html form without giving us
 You must include [JQuery](https://nodejs.org/) first, and this plugin after that like so.
 ```html
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-<script type="text/javascript" src="spartan-multi-image-picker.min.js"></script>
+<script type="text/javascript" src="dist/js/spartan-multi-image-picker-min.js"></script>
 ```
 
-After doing that, create an element where do you want to activate this input file picker.
+Create an element where do you want to activate this input file.
 
 ```html
 <div class="row">
@@ -29,21 +29,20 @@ $("#coba1").spartanMultiImagePicker({
 	fieldName:   'fileUpload[]'
 });
 ```
-The `fieldName` is your field name that this plugin will append as input type file to you html.
+The `fieldName` is your field name that will appended as input type file to you html.
 
 ### All Properties
 
 This is what you can custom when you call this plugin.
 
-| Property | Type |
-| ------ | ------ |
-| `fieldName` | String |
-| `maxCount` | Number |
-| `rowHeight` | String, example : `200px` |
-| `groupClassName` | String, example : `col-md-4 col-sm-4 col-xs-6` |
-
-You can see the example in my `index.html` file.
-
+| Property | Type | Example |
+| ------ | ------ | ------ |
+| `fieldName` | String | `fileUpload[]` or `fileUpload` for single image |
+| `maxCount` | Number | `1`, `2` |
+| `rowHeight` | String | `200px` |
+| `groupClassName` | String | `col-md-4 col-sm-4 col-xs-6` |
+| `allowedExt` | String | `png|jpg|jpeg|gif` |
+| `placeholderImage` | Object with `image` and `width` properties | `{ image: 'placeholder.png', width: '100%'}` |
 
 ### Callback
 
@@ -52,7 +51,32 @@ You can see the example in my `index.html` file.
 | `onAddRow` | Called on a new field appear |
 | `onRenderedPreview` | Called on image rendered as a preview  |
 | `onRemoveRow` | Called on user click the remove button for each field |
+| `onExtensionErr` | Called on extension didn't match as `allowedExtension` |
 
-
-### PS
-This plugin run best using bootstrap 3 and you are my **alpha tester** :)
+### Full customize example:
+```js
+$("#coba").spartanMultiImagePicker({
+	fieldName:        'fileUpload[]',
+	maxCount:         5,
+	rowHeight:        '200px',
+	groupClassName:   'col-md-4 col-sm-4 col-xs-6',
+	allowedExt:       'png|jpg',
+	placeholderImage: {
+	    image: 'placeholder.png',
+	    width: '100%'
+	},
+	onAddRow:       function(){
+		console.log('add new row');
+	},
+	onRenderedPreview : function(){
+		console.log('preview rendered');
+	},
+	onRemoveRow : function(){
+		console.log('remove row');
+	},
+	onExtensionErr : function(){
+		console.log('extension error');
+		alert('Please only input png or jpg type file')
+	}
+});
+```
