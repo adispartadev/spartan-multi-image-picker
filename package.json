@@ -1,6 +1,6 @@
 {
   "name": "spartan-multi-image-picker",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Multi image picker for you",
   "main": "index.js",
   "scripts": {
