@@ -1,4 +1,6 @@
 # spartan-multi-image-picker
+[![Build Status](https://travis-ci.org/adispartadev/spartan-multi-image-picker.svg?branch=master)](https://travis-ci.org/adispartadev/spartan-multi-image-picker)
+[![npm](https://img.shields.io/npm/dt/spartan-multi-image-picker.svg)](https://github.com/adispartadev/spartan-multi-image-picker)
 
 This plugin enable you to upload multiple files on a html form without giving your dummy user a pain in the ass to hold their `Ctrl` keyboard for non ajax upload file.
 
@@ -12,7 +14,7 @@ Download this package or install via bower
 `bower install spartan-multi-image-picker`
 
 
-Include [JQuery](https://nodejs.org/) first, and this plugin after that like so.
+Include [JQuery](https://jquery.com/) first, and this plugin after that like so.
 ```html
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script type="text/javascript" src="dist/js/spartan-multi-image-picker-min.js"></script>
