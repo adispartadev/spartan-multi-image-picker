@@ -5,6 +5,9 @@
   "authors": [
     "Adi Sparta"
   ],
+  "dependencies" : {
+    "jquery": "~3.3.1"
+  },
   "license": "ISC",
   "keywords": [
     "ImagePicker",
