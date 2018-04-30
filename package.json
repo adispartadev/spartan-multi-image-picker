@@ -1,7 +1,7 @@
 {
   "name": "spartan-multi-image-picker",
-  "version": "1.0.1-rc.1",
-  "description": "Multi image picker for you",
+  "version": "1.0.1-rc.2",
+  "description": "A Jquery multi image picker with preview (with madness)",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
