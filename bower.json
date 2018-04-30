@@ -1,6 +1,6 @@
 {
   "name": "spartan-multi-image-picker",
-  "description": "Multi image picker for you",
+  "description": "A Jquery multi image picker with preview (with madness)",
   "main": "index.js",
   "authors": [
     "Adi Sparta"
