@@ -8,11 +8,17 @@ This plugin enable you to upload multiple files on a html form without giving yo
 
 ### Installation
 
-You must include [JQuery](https://nodejs.org/) first, and this plugin after that like so.
+Download this package or install via bower
+`bower install spartan-multi-image-picker`
+
+
+Include [JQuery](https://nodejs.org/) first, and this plugin after that like so.
 ```html
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script type="text/javascript" src="dist/js/spartan-multi-image-picker-min.js"></script>
 ```
+
+
 
 Create an element where do you want to activate this input file.
 

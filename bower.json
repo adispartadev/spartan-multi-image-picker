@@ -1,0 +1,21 @@
+{
+  "name": "spartan-multi-image-picker",
+  "description": "Multi image picker for you",
+  "main": "index.js",
+  "authors": [
+    "Adi Sparta"
+  ],
+  "license": "ISC",
+  "keywords": [
+    "ImagePicker",
+    "MultiImagePicker"
+  ],
+  "homepage": "https://github.com/adispartadev/spartan-multi-image-picker",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
