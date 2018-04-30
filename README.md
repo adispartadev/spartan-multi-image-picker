@@ -44,11 +44,12 @@ This is what you can custom when you call this plugin.
 | Property | Type | Example |
 | ------ | ------ | ------ |
 | `fieldName` | String | `fileUpload[]` or `fileUpload` for single image |
-| `maxCount` | Number | `1`, `2` |
+| `maxCount` | Number | `1`, `2` remove for unlimited count |
 | `rowHeight` | String | `200px` |
 | `groupClassName` | String | `col-md-4 col-sm-4 col-xs-6` |
-| `allowedExt` | String | `png|jpg|jpeg|gif` |
+| `allowedExt` | String | `png|jpg|jpeg|gif` or empty string for all type |
 | `placeholderImage` | Object with `image` and `width` properties | `{ image: 'placeholder.png', width: '100%'}` |
+| `maxFileSize` | Number (in kb) | `40000` |
 
 ### Callback
 
@@ -58,6 +59,7 @@ This is what you can custom when you call this plugin.
 | `onRenderedPreview` | Called on image rendered as a preview  |
 | `onRemoveRow` | Called on user click the remove button for each field |
 | `onExtensionErr` | Called on extension didn't match as `allowedExtension` |
+| `onSizeErr` | Called on image size is more than `maxFileSize` prop |
 
 ### Full customize example:
 ```js
@@ -82,7 +84,11 @@ $("#coba").spartanMultiImagePicker({
 	},
 	onExtensionErr : function(){
 		console.log('extension error');
-		alert('Please only input png or jpg type file')
+		alert('Please only input png or jpg type file');
+	},
+	onSizeErr : function(){
+		console.log('file size too big');
+		alert('File size too big');
 	}
 });
 ```

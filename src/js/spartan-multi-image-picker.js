@@ -22,11 +22,13 @@
                 width : '64px'
             },
             maxCount:          '',
+            maxFileSize:       '',
             allowedExt:        'png|jpg|jpeg|gif',
             onAddRow:          function() {},
             onRenderedPreview: function() {},
             onRemoveRow:       function() {},
-            onExtensionErr:    function() {}
+            onExtensionErr:    function() {},
+            onSizeErr:         function() {}
         };
 
         var settings = $.extend( {}, defaults, options );
@@ -71,30 +73,41 @@
         function loadImage(settings, input, parent){
             if (input.files && input.files[0]) {
     
-                var file_select = input.files[0], allowedExt = settings.allowedExt;
+                var file_select = input.files[0], allowedExt = settings.allowedExt, maxFileSize = settings.maxFileSize;
                 var file_select_type = file_select.type,
                     regex = new RegExp(`(.*?)\.(${allowedExt})$`);
 
+
+                 
                 if(regex.test(file_select_type)){
 
-                    var reader = new FileReader();
-                    reader.onload = function(e) {
-                        var index = $(input).data('spartanindexinput');
-                        $(parent).find('img[data-spartanindexi="'+index+'"]').hide();
-                        $(parent).find('a[data-spartanindexremove="'+index+'"]').show();
-                        $(parent).find('img[data-spartanindeximage="'+index+'"]').attr('src', e.target.result);
-                        $(parent).find('img[data-spartanindeximage="'+index+'"]').show();
-                        settings.onRenderedPreview.call();
-                    };
+                    if((maxFileSize == '') ||  (maxFileSize != '' && file_select.size <= maxFileSize)){
 
-                    reader.readAsDataURL(input.files[0]);
-                    total_count++;
-                    if(settings.maxCount == ''){
-                        addRow(settings, parent);
+                        var reader = new FileReader();
+                        reader.onload = function(e) {
+                            var index = $(input).data('spartanindexinput');
+                            $(parent).find('img[data-spartanindexi="'+index+'"]').hide();
+                            $(parent).find('a[data-spartanindexremove="'+index+'"]').show();
+                            $(parent).find('img[data-spartanindeximage="'+index+'"]').attr('src', e.target.result);
+                            $(parent).find('img[data-spartanindeximage="'+index+'"]').show();
+                            settings.onRenderedPreview.call();
+                        };
+
+                        reader.readAsDataURL(input.files[0]);
+                        total_count++;
+                        if(settings.maxCount == ''){
+                            addRow(settings, parent);
+                        }
+                        else if(settings.maxCount != '' && total_count < settings.maxCount ){
+                            addRow(settings, parent);
+                        }
+
                     }
-                    else if(settings.maxCount != '' && total_count < settings.maxCount ){
-                        addRow(settings, parent);
+                    else if(maxFileSize != '' && file_select.size > maxFileSize){
+                        settings.onSizeErr.call();
+                        return false;
                     }
+
                 }
                 else{
                     settings.onExtensionErr.call();

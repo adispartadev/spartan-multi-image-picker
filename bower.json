@@ -11,7 +11,8 @@
   "license": "ISC",
   "keywords": [
     "ImagePicker",
-    "MultiImagePicker"
+    "MultiImagePicker",
+    "Jquery Plugin"
   ],
   "homepage": "https://github.com/adispartadev/spartan-multi-image-picker",
   "ignore": [

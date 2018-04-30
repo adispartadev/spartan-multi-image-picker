@@ -39,6 +39,7 @@
 				rowHeight:        '200px',
 				groupClassName:   'col-md-4 col-sm-4 col-xs-6',
 				allowedExt:       'png|jpg',
+				maxFileSize: 		'',
 				placeholderImage: {
 				    image: 'placeholder.png',
 				    width: '100%'
@@ -55,6 +56,10 @@
 				onExtensionErr : function(){
 					console.log('extension err');
 					alert('Please only input png or jpg type file')
+				},
+				onSizeErr : function(){
+					console.log('file size too big');
+					alert('File size too big');
 				}
 			});
 
