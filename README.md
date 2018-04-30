@@ -1,6 +1,6 @@
 # spartan-multi-image-picker
 
-This plugin enable you to upload multiple files on a html form without giving your dummy user a pain in the ass to hold their `Ctrl` keyboard.
+This plugin enable you to upload multiple files on a html form without giving your dummy user a pain in the ass to hold their `Ctrl` keyboard for non ajax upload file.
 
 
 ![img](preview.gif)
