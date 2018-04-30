@@ -1,3 +1,8 @@
+/**
+ * spartan-multi-image-picker.js
+ * Repo : https://github.com/adispartadev/spartan-multi-image-picker
+ * Created By I Wayan Adi Sparta, 2018
+ */
 (function ($) {
     "use strict";
 
