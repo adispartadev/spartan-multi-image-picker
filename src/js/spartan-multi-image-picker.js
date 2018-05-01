@@ -77,9 +77,7 @@
                 var file_select_type = file_select.type,
                     regex = new RegExp(`(.*?)\.(${allowedExt})$`);
 
-
-                 
-                if(regex.test(file_select_type)){
+                if(regex.test(file_select_type) || allowedExt == ''){
 
                     if((maxFileSize == '') ||  (maxFileSize != '' && file_select.size <= maxFileSize)){
 
