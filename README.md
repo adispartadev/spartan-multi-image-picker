@@ -10,7 +10,7 @@ This plugin enable you to upload multiple files on a html form without hold `Ctr
 
 
 
-![img](https://adispartadev.github.io/spartan-multi-image-picker/preview.gif)
+![img](https://adispartadev.github.io/spartan-multi-image-picker/preview1.gif)
 
 
 ### Installation
@@ -78,6 +78,7 @@ $("#coba").spartanMultiImagePicker({
 	rowHeight:        '200px',
 	groupClassName:   'col-md-4 col-sm-4 col-xs-6',
 	allowedExt:       'png|jpg',
+	dropFileLabel:    "Drop Here",
 	placeholderImage: {
 	    image: 'placeholder.png',
 	    width: '100%'
