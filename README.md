@@ -58,6 +58,7 @@ This is what you can custom when you call this plugin.
 | `allowedExt` | String | `png|jpg|jpeg|gif` or empty string for all type |
 | `placeholderImage` | Object with `image` and `width` properties | `{ image: 'placeholder.png', width: '100%'}` |
 | `maxFileSize` | Number (in kb) | `40000` |
+| `dropFileLabel` | String | `Drop file here` |
 
 ### Callback
 
