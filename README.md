@@ -6,7 +6,7 @@ This plugin enable you to upload multiple files on a html form without hold `Ctr
 You can use it for non-ajax or ajax uploading file. 
 
 
-*** Next release will support upload file on file dropped ***
+***Next release will support upload file on file dropped***
 
 
 
