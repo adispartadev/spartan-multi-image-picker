@@ -29,7 +29,14 @@
             onRenderedPreview: function() {},
             onRemoveRow:       function() {},
             onExtensionErr:    function() {},
-            onSizeErr:         function() {}
+            onSizeErr:         function() {},
+            directUpload :  {
+                loaderIcon: '<i class="fas fa-sync fa-spin"></i>',
+                status:       false,
+                url:          '',
+                success:      function() {},
+                error:        function() {}
+            },
         };
 
         var settings = $.extend( {}, defaults, options );
@@ -43,14 +50,30 @@
         function addRow(settings, el){
             last_index = count;
             var groupClassName = settings.groupClassName, rowHeight = settings.rowHeight, fieldName = settings.fieldName, placeholderImage = settings.placeholderImage, dropFileLabel = settings.dropFileLabel;
-            var template = `<div class="${groupClassName} spartan_item_wrapper" data-spartanindexrow="${count}" style="margin-bottom : 20px;">`+
-                                `<label class="file_upload" style="width: 100%; height: ${rowHeight}; border: 2px dashed #ddd; border-radius: 3px; cursor: pointer; text-align: center; overflow: hidden; padding: 5px; margin-top: 5px; margin-bottom : 5px; position : relative; display: flex; align-items: center; margin: auto; justify-content: center; flex-direction: column;">`+
-                                    `<a href="javascript:void(0)" data-spartanindexremove="${count}" style="position: absolute !important; right : 3px; top: 3px; display : none; background : #ED3C20; border-radius: 3px; width: 30px; height: 30px; line-height : 30px; text-align: center; text-decoration : none; color : #FFF;" class="spartan_remove_row">&#10006;</a>`+
-                                    `<img style="width: ${placeholderImage.width}; margin: 0 auto; vertical-align: middle;" data-spartanindexi="${count}" src="${placeholderImage.image}" class="spartan_image_placeholder" /> `+
-                                    `<p data-spartanlbldropfile="${count}" style="color : #5FAAE1; display: none; width : auto; ">${dropFileLabel}</p>`+
-                                    `<img style="width: 100%; vertical-align: middle; display:none;" class="img_" data-spartanindeximage="${count}">`+
-                                    `<input class="form-control spartan_image_input" accept="image/*" data-spartanindexinput="${count}" style="display : none"  name="${fieldName}" type="file">`+
-                               `</label> `+
+            var placeholderImageTarget = placeholderImage.image;
+            var placeholderImageWidth  = '64px';
+
+            var uploadLoaderIcon = '<i class="fas fa-sync fa-spin"></i>';
+            if(typeof settings.directUpload.loaderIcon != 'undefined'){
+                uploadLoaderIcon = settings.directUpload.loaderIcon;
+            }
+
+            if(typeof placeholderImage.width != 'undefined'){
+                placeholderImageWidth = placeholderImage.width;
+            }
+            var template = `<div class="${groupClassName} spartan_item_wrapper" data-spartanindexrow="${count}" style="margin-bottom : 20px; ">`+
+                                `<div style="position: relative;">`+
+                                    `<div class="spartan_item_loader" data-spartanindexloader="${count}" style=" position: absolute; width: 100%; height: ${rowHeight}; background: rgba(255,255,255, 0.7); z-index: 22; text-align: center; align-items: center; margin: auto; justify-content: center; flex-direction: column; display : none; font-size : 1.7em; color: #CECECE">` +
+                                        `${uploadLoaderIcon}` +
+                                    `</div>`+
+                                    `<label class="file_upload" style="width: 100%; height: ${rowHeight}; border: 2px dashed #ddd; border-radius: 3px; cursor: pointer; text-align: center; overflow: hidden; padding: 5px; margin-top: 5px; margin-bottom : 5px; position : relative; display: flex; align-items: center; margin: auto; justify-content: center; flex-direction: column;">`+
+                                        `<a href="javascript:void(0)" data-spartanindexremove="${count}" style="position: absolute !important; right : 3px; top: 3px; display : none; background : #ED3C20; border-radius: 3px; width: 30px; height: 30px; line-height : 30px; text-align: center; text-decoration : none; color : #FFF;" class="spartan_remove_row"><i class="fas fa-times"></i></a>`+
+                                        `<img style="width: ${placeholderImageWidth}; margin: 0 auto; vertical-align: middle;" data-spartanindexi="${count}" src="${placeholderImageTarget}" class="spartan_image_placeholder" /> `+
+                                        `<p data-spartanlbldropfile="${count}" style="color : #5FAAE1; display: none; width : auto; ">${dropFileLabel}</p>`+
+                                        `<img style="width: 100%; vertical-align: middle; display:none;" class="img_" data-spartanindeximage="${count}">`+
+                                        `<input class="form-control spartan_image_input" accept="image/*" data-spartanindexinput="${count}" style="display : none"  name="${fieldName}" type="file">`+
+                                   `</label> `+
+                                `</div>`+
                            `</div>`;
             
             var html = $.parseHTML(template);
@@ -61,7 +84,7 @@
                 index : count,
                 last_index : last_index
             };
-            settings.onAddRow.call();
+            settings.onAddRow.call(this, count);
         }
 
 
@@ -76,7 +99,7 @@
             var index = $(input).data('spartanindexinput');
 
             if (input.files && input.files[0]) {
-    
+
                 var file_select = input.files[0], allowedExt = settings.allowedExt, maxFileSize = settings.maxFileSize;
                 var file_select_type = file_select.type,
                     regex = new RegExp(`(.*?)\.(${allowedExt})$`);
@@ -91,7 +114,12 @@
                             $(parent).find('a[data-spartanindexremove="'+index+'"]').show();
                             $(parent).find('img[data-spartanindeximage="'+index+'"]').attr('src', e.target.result);
                             $(parent).find('img[data-spartanindeximage="'+index+'"]').show();
-                            settings.onRenderedPreview.call();
+                            settings.onRenderedPreview.call(this, index);
+
+                            // on upload
+                            if(settings.directUpload.status == true){
+                                actionDirectUpload(settings, input, parent);
+                            }
                         };
 
                         reader.readAsDataURL(input.files[0]);
@@ -100,7 +128,6 @@
                             total_count++;
                             is_add = true;
                         }
-
                         if(index == (count - 1) && is_add ){
                             if(settings.maxCount == ''){
                                 addRow(settings, parent);
@@ -115,7 +142,7 @@
                         if( $(parent).find('img[data-spartanindeximage="'+index+'"]').is(":visible")  == true){
                             $(parent).find('img[data-spartanindexi="'+index+'"]').hide();
                         }
-                        settings.onSizeErr.call();
+                        settings.onSizeErr.call(this, index, file_select);
                         return false;
                     }
 
@@ -124,11 +151,57 @@
                     if( $(parent).find('img[data-spartanindeximage="'+index+'"]').is(":visible")  == true){
                         $(parent).find('img[data-spartanindexi="'+index+'"]').hide();
                     }
-                    settings.onExtensionErr.call();
+                    settings.onExtensionErr.call(this, index, file_select);
                     return false;
                 }
 
             }
+        }
+
+
+        /**
+         * CALLED ON UPLOAD IS ON
+         * @param  {[type]} settings [description]
+         * @param  {[type]} input    [description]
+         * @param  {[type]} parent   [description]
+         * @return {[type]}          [description]
+         */
+        function actionDirectUpload(settings, input, parent){
+            var index = $(input).data('spartanindexinput');
+            var formData = new FormData();
+            var file = input.files[0];
+            var additionalParam = settings.directUpload.additionalParam;
+            $(parent).find('[data-spartanindexloader="'+index+'"]').css('display', 'flex');
+            formData.append('file', file);
+
+            if(typeof additionalParam != 'undefined'){
+                $.each(additionalParam, function(key, value){
+                    formData.append(key, value);
+                });
+            }
+
+            $.ajax({
+                url: settings.directUpload.url,
+                type: 'POST',
+                data: formData,
+                cache: false,
+                processData: false,
+                contentType: false,
+                success: function(data, textStatus, jqXHR){
+                    $(parent).find('[data-spartanindexloader="'+index+'"]').css('display', 'none');
+
+                    if(typeof settings.directUpload.success != 'undefined'){
+                        settings.directUpload.success(this, data, textStatus, jqXHR);
+                    }
+                },
+                error: function(jqXHR, textStatus, errorThrown){
+                    $(parent).find('[data-spartanindexloader="'+index+'"]').css('display', 'none');
+                    if(typeof settings.directUpload.error != 'undefined'){
+                        settings.directUpload.error(this, jqXHR, textStatus, errorThrown);
+                    }
+                }
+            });
+
         }
 
 
@@ -146,7 +219,7 @@
                 addRow(settings, parent);
             }
             total_count--;
-            settings.onRemoveRow.call();
+            settings.onRemoveRow.call(this, index);
         }
 
 
