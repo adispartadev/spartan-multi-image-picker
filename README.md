@@ -1,5 +1,8 @@
 # spartan-multi-image-picker
 
+***Next develop will allow user drag more than one picture***
+
+
 [![npm](https://img.shields.io/npm/dt/spartan-multi-image-picker.svg)](https://github.com/adispartadev/spartan-multi-image-picker)
 
 This plugin enable you to upload multiple files on a html form without hold `Ctrl` on your keyboard. You can use it for non-ajax or ajax uploading file. 
