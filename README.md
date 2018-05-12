@@ -1,5 +1,8 @@
 # spartan-multi-image-picker
 
+***Next develop will allow user drag more than one picture***
+
+
 [![npm](https://img.shields.io/npm/dt/spartan-multi-image-picker.svg)](https://github.com/adispartadev/spartan-multi-image-picker)
 [![Version](https://img.shields.io/npm/spartan-multi-image-picker.svg)](https://www.npmjs.com/package/spartan-multi-image-picker)
 
