@@ -1,4 +1,5 @@
 # spartan-multi-image-picker
+> A Jquery multi image picker with preview (and madness).
 
 
 
@@ -10,7 +11,6 @@
 
 This plugin enable you to upload multiple files on a html form without hold `Ctrl` on your keyboard. You can use it for non-ajax or ajax uploading file. 
 
-> A Jquery multi image picker with preview (and madness).
 
 - [Website](https://adispartadev.github.io/spartan-multi-image-picker/)
 
