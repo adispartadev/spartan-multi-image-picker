@@ -56,7 +56,7 @@ Create an element where do you want to activate this input file.
 Activate this plugin.
 
 ```js
-$("#coba1").spartanMultiImagePicker({
+$("#coba").spartanMultiImagePicker({
 	fieldName:   'fileUpload[]'
 });
 ```
