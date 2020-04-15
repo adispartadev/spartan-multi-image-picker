@@ -270,7 +270,7 @@
          */
         function onDropImage(setting, input, parent, evt){
             var index = $(input).data('spartanindexrow');
-            var file_p = $(parent).find('.spartan_image_input[data-spartanindexinput="'+index+'"]');
+            var file_p = $(parent).find('.spartan_image_input[data-spartanindexinput="'+index+'"]')[0];
             file_p.files = evt.originalEvent.dataTransfer.files;
 
             // clear on hover style
