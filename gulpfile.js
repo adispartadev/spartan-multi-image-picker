@@ -7,7 +7,7 @@ var minifyJS = require('gulp-minify');
 var jsFiles = 'src/js/*.js',
     jsDest = 'dist/js';
 
-gulp.task('scripts', function() {
+gulp.task('default', () => {
     return gulp.src(jsFiles)
         .pipe(concat('spartan-multi-image-picker.js'))
         .pipe(gulp.dest(jsDest))
