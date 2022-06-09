@@ -108,25 +108,15 @@ This is what you can custom when you call this plugin.
   
 
 | Property | Type | Example |
-
 | ------ | ------ | ------ |
-
 | `fieldName` | String | `fileUpload[]` or `fileUpload` for single image |
-
 | `maxCount` | Number | `1`, `2` remove for unlimited count |
-
 | `rowHeight` | String | `200px` |
-
 | `groupClassName` | String | `col-md-4 col-sm-4 col-xs-6` |
-
 | `allowedExt` | String | `png|jpg|jpeg|gif` or empty string for all type |
-
 | `placeholderImage` | Object with `image` and `width` properties | `{ image: 'placeholder.png', width: '100%'}` |
-
 | `maxFileSize` | Number (in kb) | `40000` |
-
 | `dropFileLabel` | String | `Drop file here` |
-
 | `directUpload` | Object | See in my example file |
 
   
@@ -136,17 +126,11 @@ This is what you can custom when you call this plugin.
   
 
 | Callback | Description | Return Param |
-
 | ------ | ------ | ----- |
-
 | `onAddRow` | Called on a new field appear | item count |
-
 | `onRenderedPreview` | Called on image rendered as a preview | item count |
-
 | `onRemoveRow` | Called on user click the remove button for each field | item count |
-
 | `onExtensionErr` | Called on extension didn't match as `allowedExtension` | item count, file |
-
 | `onSizeErr` | Called on image size is more than `maxFileSize` prop | item count, file |
 
   
