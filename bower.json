@@ -1,0 +1,25 @@
+{
+  "name": "spartan-multi-image-picker",
+  "description": "A Jquery multi image picker with preview (with madness)",
+  "main": "index.js",
+  "authors": [
+    "Adi Sparta"
+  ],
+  "dependencies" : {
+    "jquery": "~3.3.1"
+  },
+  "license": "ISC",
+  "keywords": [
+    "ImagePicker",
+    "MultiImagePicker",
+    "Jquery Plugin"
+  ],
+  "homepage": "https://github.com/adispartadev/spartan-multi-image-picker",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
