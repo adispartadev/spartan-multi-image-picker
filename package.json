@@ -1,6 +1,6 @@
 {
   "name": "spartan-multi-image-picker",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "A Jquery multi image picker with preview (and madness)",
   "main": "index.js",
   "scripts": {
