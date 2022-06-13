@@ -113,7 +113,7 @@ This is what you can custom when you call this plugin.
 | `maxCount` | Number | `1`, `2` remove for unlimited count |
 | `rowHeight` | String | `200px` |
 | `groupClassName` | String | `col-md-4 col-sm-4 col-xs-6` |
-| `allowedExt` | String | `png\|jpg\|jpeg\|gif` or empty string for all type |
+| `allowedExt` | String | `png&#x7c;jpg&#x7c;jpeg&#x7c;gif` or empty string for all type |
 | `placeholderImage` | Object with `image` and `width` properties | `{ image: 'placeholder.png', width: '100%'}` |
 | `maxFileSize` | Number (in kb) | `40000` |
 | `dropFileLabel` | String | `Drop file here` |
