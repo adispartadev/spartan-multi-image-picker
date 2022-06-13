@@ -106,15 +106,18 @@
         function loadImage(settings, input, parent){
             var index = $(input).data('spartanindexinput');
 
+
             if (input.files && input.files[0]) {
 
                 var file_select = input.files[0], allowedExt = settings.allowedExt, maxFileSize = settings.maxFileSize;
                 var file_select_type = file_select.type,
                     regex = new RegExp(`(.*?)\.(${allowedExt})$`);
 
+
                 if(regex.test(file_select_type) || allowedExt == ''){
 
-                    if((maxFileSize == '') ||  (maxFileSize != '' && file_select.size <= maxFileSize)){
+
+                    if((maxFileSize == '') ||  (maxFileSize != '' && (file_select.size / 1000) <= maxFileSize)){
 
                         var reader = new FileReader();
                         reader.onload = function(e) {
@@ -145,7 +148,7 @@
                             }
                         }
                     }
-                    else if(maxFileSize != '' && file_select.size > maxFileSize){
+                    else if(maxFileSize != '' && (file_select.size / 1000) > maxFileSize){
                         
                         if( $(parent).find('img[data-spartanindeximage="'+index+'"]').is(":visible")  == true){
                             $(parent).find('img[data-spartanindexi="'+index+'"]').hide();
